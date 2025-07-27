@@ -22,6 +22,7 @@ public class MyAccountService {
         SetPasswordResponse setPasswordResponse = new SetPasswordResponse();
         try {
             var setPassword = userManagementService.setPasswordAndMpin(request);
+            log.info("userData when set pass : {}", setPassword.getUserData());
             if (setPassword.getMessage().equals("Data Registered Success")) {
                 myAccountManagementService.saveAccountUser(SaveUserAccountRequest.builder()
                         .userProfileId(setPassword.getUserData().getId())
