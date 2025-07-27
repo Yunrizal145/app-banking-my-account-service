@@ -38,7 +38,7 @@
 		<dependency>
 			<groupId>com.spring</groupId>
 			<artifactId>user-management-service</artifactId>
-			<version>0.0.2-SNAPSHOT</version>
+			<version>0.0.3-SNAPSHOT</version>
 			<classifier>data-model</classifier>
 		</dependency>
 
@@ -46,6 +46,7 @@
 			<groupId>com.spring</groupId>
 			<artifactId>my-account-management-service</artifactId>
 			<version>0.0.2-SNAPSHOT</version>
+			<type>jar</type>
 			<classifier>data-model</classifier>
 		</dependency>
 
