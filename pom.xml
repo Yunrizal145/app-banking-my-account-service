@@ -36,10 +36,9 @@
 		</dependency>
 
 		<dependency>
-			<groupId>com.spring</groupId>
-			<artifactId>user-management-service</artifactId>
-			<version>0.0.3-SNAPSHOT</version>
-			<classifier>data-model</classifier>
+			<groupId>com.github.Yunrizal145</groupId>
+			<artifactId>app-banking-user-ms</artifactId>
+			<version>v1.0.0</version>
 		</dependency>
 
 		<dependency>
@@ -98,6 +97,10 @@
 		<repository>
 			<id>github-my-account-ms</id>
 			<url>https://maven.pkg.github.com/Yunrizal145/app-banking-my-account-ms</url>
+		</repository>
+		<repository>
+			<id>jitpack.io</id>
+			<url>https://jitpack.io</url>
 		</repository>
 	</repositories>
 
