@@ -42,11 +42,9 @@
 		</dependency>
 
 		<dependency>
-			<groupId>com.spring</groupId>
-			<artifactId>my-account-management-service</artifactId>
-			<version>0.0.2-SNAPSHOT</version>
-			<type>jar</type>
-			<classifier>data-model</classifier>
+			<groupId>com.github.Yunrizal145</groupId>
+			<artifactId>app-banking-my-account-ms</artifactId>
+			<version>v1.0.0</version>
 		</dependency>
 
 		<dependency>
