@@ -39,12 +39,14 @@
 			<groupId>com.github.Yunrizal145</groupId>
 			<artifactId>app-banking-user-ms</artifactId>
 			<version>v1.0.0</version>
+			<classifier>data-model</classifier>
 		</dependency>
 
 		<dependency>
 			<groupId>com.github.Yunrizal145</groupId>
 			<artifactId>app-banking-my-account-ms</artifactId>
 			<version>v1.0.1</version>
+			<classifier>data-model</classifier>
 		</dependency>
 
 		<dependency>
