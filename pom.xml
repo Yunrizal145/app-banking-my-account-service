@@ -38,14 +38,14 @@
 		<dependency>
 			<groupId>com.spring</groupId>
 			<artifactId>user-management-service</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
+			<version>0.0.2-SNAPSHOT</version>
 			<classifier>data-model</classifier>
 		</dependency>
 
 		<dependency>
 			<groupId>com.spring</groupId>
 			<artifactId>my-account-management-service</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
+			<version>0.0.2-SNAPSHOT</version>
 			<classifier>data-model</classifier>
 		</dependency>
 
@@ -90,6 +90,23 @@
 				<enabled>false</enabled>
 			</snapshots>
 		</repository>
+		<repository>
+			<id>github-user-ms</id>
+			<url>https://maven.pkg.github.com/Yunrizal145/app-banking-user-ms</url>
+		</repository>
+		<repository>
+			<id>github-my-account-ms</id>
+			<url>https://maven.pkg.github.com/Yunrizal145/app-banking-my-account-ms</url>
+		</repository>
 	</repositories>
+
+	<distributionManagement>
+		<repository>
+			<id>github-my-account-service</id>
+			<name>GitHub Packages</name>
+			<url>https://maven.pkg.github.com/Yunrizal145/app-banking-my-account-service</url>
+		</repository>
+	</distributionManagement>
+
 
 </project>
