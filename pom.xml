@@ -89,14 +89,6 @@
 			</snapshots>
 		</repository>
 		<repository>
-			<id>github-user-ms</id>
-			<url>https://maven.pkg.github.com/Yunrizal145/app-banking-user-ms</url>
-		</repository>
-		<repository>
-			<id>github-my-account-ms</id>
-			<url>https://maven.pkg.github.com/Yunrizal145/app-banking-my-account-ms</url>
-		</repository>
-		<repository>
 			<id>jitpack.io</id>
 			<url>https://jitpack.io</url>
 		</repository>
