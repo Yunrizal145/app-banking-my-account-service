@@ -1,1 +1,1 @@
-web: java -Dserver.port=$PORT -jar target/my-account-service-0.0.1-SNAPSHOT.jar
+web: java -Dserver.port=$PORT -jar target/my-account-service-0.0.2-SNAPSHOT.jar
