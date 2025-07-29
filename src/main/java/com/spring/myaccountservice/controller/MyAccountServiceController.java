@@ -1,7 +1,9 @@
 package com.spring.myaccountservice.controller;
 
+import com.spring.myaccountservice.dto.RequestListTransactionHistory;
 import com.spring.myaccountservice.service.MyAccountService;
 import com.spring.myaccountservice.service.UserManagementService;
+import com.spring.transactionhistorymanagementservice.dto.GetListTransactionHistoryResponse;
 import com.spring.usermanagementservice.dto.OtpRequest;
 import com.spring.usermanagementservice.dto.OtpValidationRequest;
 import com.spring.usermanagementservice.dto.OtpValidationResponse;
@@ -41,5 +43,10 @@ public class MyAccountServiceController {
     @PostMapping("/setpasswordandmpin")
     public SetPasswordResponse setPasswordAndMpin(@RequestBody SetPasswordRequest request) {
         return myAccountService.setPasswordAndMpin(request);
+    }
+
+    @PostMapping("/getlisttransactionhistory")
+    public GetListTransactionHistoryResponse getListTransactionHistoryResponse(@RequestBody RequestListTransactionHistory request) {
+        return myAccountService.getListTransactionHistoryResponse(request);
     }
 }
