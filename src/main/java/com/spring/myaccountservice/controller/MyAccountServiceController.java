@@ -1,6 +1,7 @@
 package com.spring.myaccountservice.controller;
 
 import com.spring.myaccountservice.dto.RequestListTransactionHistory;
+import com.spring.myaccountservice.dto.RequestValidateMpin;
 import com.spring.myaccountservice.service.MyAccountService;
 import com.spring.myaccountservice.service.UserManagementService;
 import com.spring.transactionhistorymanagementservice.dto.GetListTransactionHistoryResponse;
@@ -12,6 +13,7 @@ import com.spring.usermanagementservice.dto.SaveDataUserRegisterRequest;
 import com.spring.usermanagementservice.dto.SaveDataUserRegisterResponse;
 import com.spring.usermanagementservice.dto.SetPasswordRequest;
 import com.spring.usermanagementservice.dto.SetPasswordResponse;
+import com.spring.usermanagementservice.dto.ValidateMpinResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -54,5 +56,10 @@ public class MyAccountServiceController {
     @PostMapping("/getuserfavorite")
     public GetUserFavoriteResponse getUserFavorite(@RequestBody RequestListTransactionHistory request) {
         return myAccountService.getuserFavorite(request);
+    }
+
+    @PostMapping("/validatempin")
+    public ValidateMpinResponse validateMpin(@RequestBody RequestValidateMpin request) {
+        return myAccountService.validateMpin(request);
     }
 }

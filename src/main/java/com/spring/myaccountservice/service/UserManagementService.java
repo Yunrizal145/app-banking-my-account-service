@@ -12,6 +12,8 @@ import com.spring.usermanagementservice.dto.SaveDataUserRegisterRequest;
 import com.spring.usermanagementservice.dto.SaveDataUserRegisterResponse;
 import com.spring.usermanagementservice.dto.SetPasswordRequest;
 import com.spring.usermanagementservice.dto.SetPasswordResponse;
+import com.spring.usermanagementservice.dto.ValidateMpinRequest;
+import com.spring.usermanagementservice.dto.ValidateMpinResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -52,6 +54,9 @@ public class UserManagementService {
 
     @Value("${url.getUserFavorite}")
     private String getUserFavoriteUrl;
+
+    @Value("${url.validateMpin}")
+    private String validateMpinUrl;
 
     public GetUserProfileResponse getUserProfile(GetUserProfileRequest request) {
         log.info("Start getValueFromUserMS ... ");
@@ -121,5 +126,13 @@ public class UserManagementService {
 
         ResponseEntity<GetUserFavoriteResponse> getUserAuthentication = restTemplate.postForEntity(getUserFavoriteUrl, request, GetUserFavoriteResponse.class);
         return getUserAuthentication.getBody();
+    }
+
+    public ValidateMpinResponse validateMpin(ValidateMpinRequest request) {
+        log.info("Start validateMpin ... ");
+        log.info("Start validateMpin req : {}", request);
+
+        ResponseEntity<ValidateMpinResponse> validateMpinEntity = restTemplate.postForEntity(getUserFavoriteUrl, request, ValidateMpinResponse.class);
+        return validateMpinEntity.getBody();
     }
 }

@@ -2,6 +2,7 @@ package com.spring.myaccountservice.service;
 
 import com.spring.myaccountmanagementservice.dto.SaveUserAccountRequest;
 import com.spring.myaccountservice.dto.RequestListTransactionHistory;
+import com.spring.myaccountservice.dto.RequestValidateMpin;
 import com.spring.transactionhistorymanagementservice.dto.GetListTransactionHistoryRequest;
 import com.spring.transactionhistorymanagementservice.dto.GetListTransactionHistoryResponse;
 import com.spring.usermanagementservice.dto.GetUserAuthenticationRequest;
@@ -9,6 +10,8 @@ import com.spring.usermanagementservice.dto.GetUserFavoriteResponse;
 import com.spring.usermanagementservice.dto.GetUserProfileRequest;
 import com.spring.usermanagementservice.dto.SetPasswordRequest;
 import com.spring.usermanagementservice.dto.SetPasswordResponse;
+import com.spring.usermanagementservice.dto.ValidateMpinRequest;
+import com.spring.usermanagementservice.dto.ValidateMpinResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -93,6 +96,29 @@ public class MyAccountService {
             return getUserFavoriteResponse;
         } catch (Exception e) {
             throw new RuntimeException("error when get user favorite: {}", e);
+        }
+    }
+
+    public ValidateMpinResponse validateMpin(RequestValidateMpin requestValidateMpin){
+        log.info("start validateMpin ... ");
+        log.info("start validateMpin req : {}", requestValidateMpin);
+        ValidateMpinResponse validateMpinResponse = new ValidateMpinResponse();
+        try {
+            var getUserAuth = userManagementService.getUserAuthenticationByUsername(GetUserAuthenticationRequest.builder()
+                    .username(requestValidateMpin.getUsername())
+                    .build());
+            if (Objects.nonNull(getUserAuth.getUserAuthentication())) {
+                var userAuth = getUserAuth.getUserAuthentication();
+                validateMpinResponse = userManagementService.validateMpin(ValidateMpinRequest.builder()
+                                .userProfileId(userAuth.getId())
+                                .mpin(requestValidateMpin.getMpin())
+                        .build());
+
+                return validateMpinResponse;
+            }
+            return validateMpinResponse;
+        } catch (Exception e) {
+            throw new RuntimeException("error when validate mpin", e);
         }
     }
 
