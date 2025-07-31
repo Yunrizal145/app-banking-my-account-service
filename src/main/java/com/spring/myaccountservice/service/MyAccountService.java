@@ -5,6 +5,8 @@ import com.spring.myaccountservice.dto.RequestListTransactionHistory;
 import com.spring.transactionhistorymanagementservice.dto.GetListTransactionHistoryRequest;
 import com.spring.transactionhistorymanagementservice.dto.GetListTransactionHistoryResponse;
 import com.spring.usermanagementservice.dto.GetUserAuthenticationRequest;
+import com.spring.usermanagementservice.dto.GetUserFavoriteResponse;
+import com.spring.usermanagementservice.dto.GetUserProfileRequest;
 import com.spring.usermanagementservice.dto.SetPasswordRequest;
 import com.spring.usermanagementservice.dto.SetPasswordResponse;
 import lombok.extern.slf4j.Slf4j;
@@ -66,6 +68,31 @@ public class MyAccountService {
             return getListTransactionHistory;
         } catch (Exception e) {
             throw new RuntimeException("error when get list transaction : {}", e);
+        }
+    }
+
+    public GetUserFavoriteResponse getuserFavorite(RequestListTransactionHistory request){
+        log.info("start getListTransactionHistory");
+        log.info("start getListTransactionHistory request : {}", request);
+        GetUserFavoriteResponse getUserFavoriteResponse = new GetUserFavoriteResponse();
+        try {
+            var getUserAuth = userManagementService.getUserAuthenticationByUsername(GetUserAuthenticationRequest.builder()
+                    .username(request.getUsername())
+                    .build());
+
+            if (Objects.nonNull(getUserAuth.getUserAuthentication())) {
+                var userAuth = getUserAuth.getUserAuthentication();
+                getUserFavoriteResponse = userManagementService.getUserFavorite(GetUserProfileRequest.builder()
+                                .userProfileId(userAuth.getId())
+                                .bankName(request.getBankName())
+                        .build());
+                log.info("userFavorite data : {}", getUserFavoriteResponse);
+                return getUserFavoriteResponse;
+            }
+
+            return getUserFavoriteResponse;
+        } catch (Exception e) {
+            throw new RuntimeException("error when get user favorite: {}", e);
         }
     }
 

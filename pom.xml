@@ -45,7 +45,7 @@
 <!--		<dependency>-->
 <!--			<groupId>com.spring</groupId>-->
 <!--			<artifactId>user-management-service</artifactId>-->
-<!--			<version>0.0.4-SNAPSHOT</version>-->
+<!--			<version>0.0.5</version>-->
 <!--			<classifier>data-model</classifier>-->
 <!--		</dependency>-->
 
@@ -59,7 +59,7 @@
 		<dependency>
 			<groupId>com.github.Yunrizal145</groupId>
 			<artifactId>app-banking-user-ms</artifactId>
-			<version>v1.0.0</version>
+			<version>v1.0.3</version>
 			<classifier>data-model</classifier>
 		</dependency>
 

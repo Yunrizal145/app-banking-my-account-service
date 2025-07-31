@@ -2,6 +2,7 @@ package com.spring.myaccountservice.service;
 
 import com.spring.usermanagementservice.dto.GetUserAuthenticationRequest;
 import com.spring.usermanagementservice.dto.GetUserAuthenticationResponse;
+import com.spring.usermanagementservice.dto.GetUserFavoriteResponse;
 import com.spring.usermanagementservice.dto.GetUserProfileRequest;
 import com.spring.usermanagementservice.dto.GetUserProfileResponse;
 import com.spring.usermanagementservice.dto.OtpRequest;
@@ -48,6 +49,9 @@ public class UserManagementService {
 
     @Value("${url.setPasswordAndMpin}")
     private String setPasswordAndMpinUrl;
+
+    @Value("${url.getUserFavorite}")
+    private String getUserFavoriteUrl;
 
     public GetUserProfileResponse getUserProfile(GetUserProfileRequest request) {
         log.info("Start getValueFromUserMS ... ");
@@ -108,6 +112,14 @@ public class UserManagementService {
         log.info("getUserAuthentication by username ... ");
 
         ResponseEntity<SetPasswordResponse> getUserAuthentication = restTemplate.postForEntity(setPasswordAndMpinUrl, request, SetPasswordResponse.class);
+        return getUserAuthentication.getBody();
+    }
+
+    public GetUserFavoriteResponse getUserFavorite(GetUserProfileRequest request) {
+        log.info("Start getUserFavorite List ... ");
+        log.info("Start getUserFavorite List req : {}", request);
+
+        ResponseEntity<GetUserFavoriteResponse> getUserAuthentication = restTemplate.postForEntity(getUserFavoriteUrl, request, GetUserFavoriteResponse.class);
         return getUserAuthentication.getBody();
     }
 }
