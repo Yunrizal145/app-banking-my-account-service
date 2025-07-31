@@ -132,7 +132,7 @@ public class UserManagementService {
         log.info("Start validateMpin ... ");
         log.info("Start validateMpin req : {}", request);
 
-        ResponseEntity<ValidateMpinResponse> validateMpinEntity = restTemplate.postForEntity(getUserFavoriteUrl, request, ValidateMpinResponse.class);
+        ResponseEntity<ValidateMpinResponse> validateMpinEntity = restTemplate.postForEntity(validateMpinUrl, request, ValidateMpinResponse.class);
         return validateMpinEntity.getBody();
     }
 }
